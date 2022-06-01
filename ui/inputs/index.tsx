@@ -1,7 +1,46 @@
 import styled from "styled-components";
 import { TinyText } from "ui/texts";
 
-export const Label = styled(TinyText)``;
+export const Label = styled.label`
+  padding: 10px;
+  padding-right: 50px;
+  border: 1px solid #e8e8e8;
+  font-size: 13px;
+  font-weight: 300;
+`;
+
+export const Select = styled.select`
+  padding: 9px;
+  padding-right: 60px;
+  border-left: none;
+  border: 1px solid #e8e8e8;
+  background-color: #fafafa;
+`;
+
+export const Option = styled.option`
+  font-size: 13px;
+  font-weight: 300;
+`;
+
+export function InputSize({ label, sizes }: any) {
+  return (
+    <label>
+      <Label>{label}</Label>
+      <Select>
+        <Option value="Elegi una opción">
+          <TinyText>Elegi una opción</TinyText>
+        </Option>
+        {sizes.map((size: any) => {
+          return (
+            <Option value="size">
+              <TinyText>{size}</TinyText>
+            </Option>
+          );
+        })}
+      </Select>
+    </label>
+  );
+}
 
 export const Input = styled.input.attrs((props) => ({
   placeholder: props.placeholder,

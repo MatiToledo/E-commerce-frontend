@@ -27,7 +27,13 @@ export const MenuText = styled(Body)`
   font-size: 13px;
 `;
 
-export const TinyText = styled(Body)`
+export const TinyText = styled.span`
   font-size: 12px;
   font-weight: 300;
+  margin: 0;
+  color: ${(props) => props.color || "black"};
+`;
+
+export const TinyTextBold = styled(TinyText)`
+  font-weight: bold;
 `;

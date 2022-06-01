@@ -17,7 +17,7 @@ export default function Header() {
 
   return (
     <Root>
-      <div>
+      <div style={{}}>
         <LogoWhite onClick={() => router.push("/")} />
       </div>
       <Menu>
@@ -26,13 +26,28 @@ export default function Header() {
       </Menu>
       {active ? (
         <Dropdown>
-          <MenuOption>
+          <MenuOption
+            onClick={() => {
+              router.push({ pathname: "/Top" });
+              setActive(!active);
+            }}
+          >
             <MenuText color="#343538">TOP</MenuText>
           </MenuOption>
-          <MenuOption>
+          <MenuOption
+            onClick={() => {
+              router.push({ pathname: "/Bottom" });
+              setActive(!active);
+            }}
+          >
             <MenuText color="#343538">BOTTOM</MenuText>
           </MenuOption>
-          <MenuOption>
+          <MenuOption
+            onClick={() => {
+              router.push({ pathname: "/Accesorios" });
+              setActive(!active);
+            }}
+          >
             <MenuText color="#343538">ACCESORIES</MenuText>
           </MenuOption>
         </Dropdown>

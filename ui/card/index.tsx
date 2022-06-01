@@ -5,6 +5,7 @@ import { BodyBold, SubTitle, TinyText } from "ui/texts";
 export const Root = styled.div`
   display: flex;
   flex-direction: column;
+  width: 180px;
 `;
 
 export const Info = styled.div`
@@ -31,7 +32,7 @@ type CardProps = {
 export default function Card({ src, title, price, id }: CardProps) {
   const router = useRouter();
   function handleClick() {
-    router.push("product/" + id);
+    router.push({ pathname: "/product/" + id });
   }
 
   return (

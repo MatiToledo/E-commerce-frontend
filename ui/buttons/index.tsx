@@ -21,3 +21,18 @@ export function ButtonPrimary({ text }: ButtonsProps) {
     </BaseButoon>
   );
 }
+
+export const ShopButton = styled.button`
+  background-color: #343538;
+  padding: 20px 35px;
+  border: none;
+  width: 200px;
+`;
+
+export function ButtonShop() {
+  return (
+    <ShopButton>
+      <MenuText color="#fff">COMPRAR</MenuText>
+    </ShopButton>
+  );
+}

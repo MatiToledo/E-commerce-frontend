@@ -19,7 +19,7 @@ export default function Footer() {
         <Twitter />
       </Media>
       <TinyText color="#8a8a8a">
-        © 2021 BOSTON HYPE TODOS LOS DERECHOS RESERVADOS
+        © 2021 HYPE TODOS LOS DERECHOS RESERVADOS
       </TinyText>
     </Root>
   );
