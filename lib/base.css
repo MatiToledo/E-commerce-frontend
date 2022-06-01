@@ -1,0 +1,22 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+/* material ui color */
+
+:root {
+  --nobel: #b3afb0;
+  --bali-hai: #8593ab;
+  --bone: #e4d4c5;
+  --wattle: #dfe142;
+  --del-rio: #b2a199;
+  --pelorous: #3b9dc3;
+  --astronaut: #004660;
+  --white: #fafafa;
+}
