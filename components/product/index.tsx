@@ -13,7 +13,9 @@ export default function Product({ product }: any) {
         <Price>
           <BodyBold>$ {product.unit_price}</BodyBold>
         </Price>
-        <InputSize label="Tamaño" sizes={product.Sizes}></InputSize>
+        {product.Sizes ? (
+          <InputSize label="Tamaño" sizes={product.Sizes}></InputSize>
+        ) : null}
         <Button>
           <ButtonShop></ButtonShop>
         </Button>

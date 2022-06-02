@@ -32,7 +32,7 @@ export function InputSize({ label, sizes }: any) {
         </Option>
         {sizes.map((size: any) => {
           return (
-            <Option value="size">
+            <Option value="size" key={size}>
               <TinyText>{size}</TinyText>
             </Option>
           );

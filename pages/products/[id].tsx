@@ -14,11 +14,12 @@ export async function getStaticPaths() {
   const res = await fetch(`https://desafio-m9.vercel.app/api/products`);
   const data = await res.json();
   const hits = data.hits;
+  const paths = hits.map((item: any) => {
+    return { params: { id: item.Code } };
+  });
 
   return {
-    paths: hits.map((item: any) => {
-      return { params: { id: item.Code } };
-    }),
+    paths,
     fallback: true,
   };
 }
@@ -28,6 +29,8 @@ export async function getStaticProps(context: any) {
 
   const res = await fetch(`https://desafio-m9.vercel.app/api/products/${id}`);
   const data = await res.json();
+  console.log(data);
+
   return {
     props: { data },
   };
