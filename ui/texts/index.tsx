@@ -4,6 +4,8 @@ export const Title = styled.h1`
   font-size: 32px;
   font-weight: 700;
   margin: 0;
+  color: ${(props) => props.color || "black"};
+  text-decoration: ${(props: any) => props["text-decoration"] || "none"};
 `;
 
 export const SubTitle = styled(Title).attrs({

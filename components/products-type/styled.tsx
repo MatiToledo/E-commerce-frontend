@@ -12,13 +12,22 @@ export const HeaderType = styled.div`
   display: flex;
   width: 100%;
   background-image: url("https://res.cloudinary.com/matitoledo/image/upload/v1654042550/descarga_glgqw0.png");
-  height: 80px;
+  height: 130px;
   background-size: auto;
   justify-content: center;
   align-items: center;
   background-size: cover;
   background-repeat: no-repeat;
-  text-decoration: underline;
+  background-position: center;
+`;
+
+export const HeaderText = styled.div`
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
+  height: 100px;
 `;
 
 export const CardsContainer = styled.div`

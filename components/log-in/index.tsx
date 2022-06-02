@@ -1,9 +1,10 @@
 import { ButtonPrimary } from "ui/buttons";
-import { Input, InputLogin, TextField } from "ui/inputs";
+import { Input, InputLogin } from "ui/inputs";
 import { SubTitle, TinyText } from "ui/texts";
-import { Error, FormEmail, FormCode, Root } from "./styled";
+import { Error, Root, Form } from "./styled";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
+import { sendCode } from "lib/api";
 
 export default function LogIn() {
   const [email, setEmail] = useState(false);
@@ -12,11 +13,14 @@ export default function LogIn() {
     register,
     handleSubmit,
     watch,
+    reset,
     formState: { errors },
   } = useForm();
 
   function handleEmail(data: any) {
     setEmail(data.email);
+    sendCode(data.email);
+    reset();
   }
   function handleCode(data: any) {
     console.log(data);
@@ -25,8 +29,21 @@ export default function LogIn() {
   return (
     <Root>
       <SubTitle>Ingresar</SubTitle>
-      {!email ? (
-        <FormEmail onSubmit={handleSubmit(handleEmail)}>
+      <Form onSubmit={handleSubmit(handleEmail)}>
+        <label>
+          <InputLogin
+            type={"email"}
+            placeholder="Email"
+            color="#8a8a8a"
+            {...register("email", { required: true })}
+          ></InputLogin>
+          {errors.email && <Error>Este campo es obligatorio</Error>}
+        </label>
+
+        <ButtonPrimary text="Continuar"></ButtonPrimary>
+      </Form>
+      {/* {!email ? (
+        <Form onSubmit={handleSubmit(handleEmail)}>
           <label>
             <InputLogin
               type={"email"}
@@ -38,9 +55,9 @@ export default function LogIn() {
           </label>
 
           <ButtonPrimary text="Continuar"></ButtonPrimary>
-        </FormEmail>
+        </Form>
       ) : (
-        <FormCode onSubmit={handleSubmit(handleCode)}>
+        <Form onSubmit={handleSubmit(handleCode)}>
           <label>
             <InputLogin
               type={"text"}
@@ -52,8 +69,8 @@ export default function LogIn() {
           </label>
           <TinyText>Te enviamos un codigo a tu mail</TinyText>
           <ButtonPrimary text="Ingresar"></ButtonPrimary>
-        </FormCode>
-      )}
+        </Form>
+      )} */}
     </Root>
   );
 }
