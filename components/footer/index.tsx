@@ -9,8 +9,8 @@ export default function Footer() {
       <LogoWhite></LogoWhite>
       <DescriptionContainer>
         <Body color="#8a8a8a">
-          Founded in Buenos Aires in 2018, Boston Hype is a contemporary/street
-          fashion brand influenced by the modern youth culture.
+          Founded in Buenos Aires in 2018, Hype is a contemporary/street fashion
+          brand influenced by the modern youth culture.
         </Body>
       </DescriptionContainer>
       <Media>

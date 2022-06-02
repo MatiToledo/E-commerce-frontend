@@ -5,13 +5,19 @@ import { BodyBold, SubTitle, TinyText } from "ui/texts";
 export const Root = styled.div`
   display: flex;
   flex-direction: column;
-  width: 180px;
+  /* width: 180px; */
+  padding: 10px;
+
+  :hover {
+    box-shadow: 0px 0px 38px 0px rgb(41 44 58 / 15%);
+  }
 `;
 
 export const Info = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 8px;
+  min-width: 180px;
 `;
 
 export const Media: any = styled.div`

@@ -18,6 +18,7 @@ export const HeaderType = styled.div`
   align-items: center;
   background-size: cover;
   background-repeat: no-repeat;
+  text-decoration: underline;
 `;
 
 export const CardsContainer = styled.div`
@@ -26,8 +27,7 @@ export const CardsContainer = styled.div`
   width: 400;
   margin: 20px 20px;
   place-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
+  /* gap: 20px; */
   @media (min-width: 580px) {
     grid-template-columns: 1fr 1fr 1fr;
   }

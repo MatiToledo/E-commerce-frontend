@@ -11,12 +11,12 @@ const ProductTypePage: NextPage = ({ products, type }: any) => {
 };
 
 export async function getStaticPaths() {
-  const types = ["Top", "Bottom", "Accesories"];
+  const types = ["Top", "Bottom", "Accesorios"];
   return {
     paths: types.map((type) => {
       return { params: { type } };
     }),
-    fallback: true, // false or 'blocking'
+    fallback: false, // false or 'blocking'
   };
 }
 

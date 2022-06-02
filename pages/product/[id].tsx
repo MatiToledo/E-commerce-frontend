@@ -11,9 +11,10 @@ const ProductPage: NextPage = ({ data }: any) => {
 };
 
 export async function getStaticPaths() {
-  const res = await fetch(`https://m9-desafio.vercel.app/api/products`);
+  const res = await fetch(`https://desafio-m9.vercel.app/api/products`);
   const data = await res.json();
-  const hits = data.result.hits;
+  const hits = data.hits;
+
   return {
     paths: hits.map((item: any) => {
       return { params: { id: item.objectID } };
