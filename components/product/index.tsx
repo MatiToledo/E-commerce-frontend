@@ -4,8 +4,6 @@ import { BodyBold, SubTitle, TinyText, TinyTextBold } from "ui/texts";
 import { Button, Category, Container, Media, Price, Root } from "./styled";
 
 export default function Product({ product }: any) {
-  console.log(product);
-
   return (
     <Root>
       <Media src={product.Images[0].url}></Media>

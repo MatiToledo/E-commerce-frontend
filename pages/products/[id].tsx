@@ -17,7 +17,7 @@ export async function getStaticPaths() {
 
   return {
     paths: hits.map((item: any) => {
-      return { params: { id: item.objectID } };
+      return { params: { id: item.Code } };
     }),
     fallback: true,
   };

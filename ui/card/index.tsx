@@ -38,7 +38,7 @@ type CardProps = {
 export default function Card({ src, title, price, id }: CardProps) {
   const router = useRouter();
   function handleClick() {
-    router.push({ pathname: "/product/" + id });
+    router.push({ pathname: "/products/" + id });
   }
 
   return (
