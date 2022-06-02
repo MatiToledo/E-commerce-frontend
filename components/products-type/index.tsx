@@ -4,7 +4,7 @@ import { Title } from "ui/texts";
 
 type ProductsTypeProps = {
   data: {
-    products: [];
+    products: any;
     nbHits: number;
   };
   type: string;
