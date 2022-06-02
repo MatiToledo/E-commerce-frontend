@@ -17,15 +17,16 @@ export const Info = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 8px;
-  min-width: 180px;
+  /* min-width: 160px; */
 `;
 
 export const Media: any = styled.div`
   background-image: url(${(props: any) => props.src};);
-  min-width: 180px;
+  min-width: 160px;
   height: 270px;
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
 `;
 
 type CardProps = {

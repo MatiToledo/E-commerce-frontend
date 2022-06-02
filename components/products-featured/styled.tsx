@@ -11,7 +11,7 @@ export const Root = styled.div`
 
 export const CardsContainer = styled.div`
   display: grid;
-  grid-template-columns: 200px 200px;
+  grid-template-columns: 180px 180px;
   width: 400;
   margin: 20px auto;
   place-items: center;
