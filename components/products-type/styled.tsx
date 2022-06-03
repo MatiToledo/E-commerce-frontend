@@ -36,11 +36,14 @@ export const CardsContainer = styled.div`
   grid-template-columns: 180px 180px;
   margin: 20px 20px;
   place-items: center;
-  /* gap: 20px; */
+
   @media (min-width: 580px) {
     grid-template-columns: 180px 180px 180px;
   }
   @media (min-width: 780px) {
     grid-template-columns: 180px 180px 180px 180px;
+  }
+  @media (min-width: 980px) {
+    grid-template-columns: 180px 180px 180px 180px 180px;
   }
 `;

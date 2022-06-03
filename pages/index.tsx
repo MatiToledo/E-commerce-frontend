@@ -97,7 +97,7 @@ const Home: NextPage = () => {
       </Head>
       <MainLayaout>
         <HomeSearch></HomeSearch>
-        <ProductsFeatured products={products}></ProductsFeatured>
+        <ProductsFeatured></ProductsFeatured>
       </MainLayaout>
     </div>
   );

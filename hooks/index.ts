@@ -1,6 +1,14 @@
 import { fetchApiGet } from "lib/api";
 import { useState } from "react";
 import useSWR from "swr";
+import useSWRImmutable from "swr/immutable";
+
+export function useGetProducts() {
+  const { data, error } = useSWRImmutable("products", fetchApiGet);
+  // console.log("DATA", data);
+
+  return data?.hits;
+}
 
 export function useGetPagination() {
   const [offset, setOffset] = useState(0);

@@ -1,57 +1,41 @@
+import BurguerHeader from "components/burguer-header";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import { Burguer, User } from "ui/icons";
+import { User } from "ui/icons";
 import { LogoWhite } from "ui/logo";
-import { MenuText } from "ui/texts";
-import { Menu, Root, Dropdown, MenuOption } from "./styled";
+import { Body, MenuText } from "ui/texts";
+import { Burguer, Left, Menu, NavLeft, Root } from "./styled";
 
 export default function Header() {
   const [active, setActive] = useState(false);
   const router = useRouter();
-  function handleMenu() {
-    setActive(!active);
-  }
   function handleUser() {
     router.push("log-in");
   }
 
   return (
     <Root>
-      <div style={{}}>
+      <Left>
         <LogoWhite onClick={() => router.push("/")} />
-      </div>
+        <NavLeft>
+          <Link href={"/Top"}>
+            <Body color="#fafafa">Top</Body>
+          </Link>
+          <Link href={"/Bottom"}>
+            <Body color="#fafafa">Bottom</Body>
+          </Link>
+          <Link href={"/Accesorios"}>
+            <Body color="#fafafa">Accesories</Body>
+          </Link>
+        </NavLeft>
+      </Left>
       <Menu>
         <User onClick={handleUser} />
-        <Burguer onClick={handleMenu} />
+        <Burguer>
+          <BurguerHeader />
+        </Burguer>
       </Menu>
-      {active ? (
-        <Dropdown>
-          <MenuOption
-            onClick={() => {
-              router.push({ pathname: "/Top" });
-              setActive(!active);
-            }}
-          >
-            <MenuText color="#343538">TOP</MenuText>
-          </MenuOption>
-          <MenuOption
-            onClick={() => {
-              router.push({ pathname: "/Bottom" });
-              setActive(!active);
-            }}
-          >
-            <MenuText color="#343538">BOTTOM</MenuText>
-          </MenuOption>
-          <MenuOption
-            onClick={() => {
-              router.push({ pathname: "/Accesorios" });
-              setActive(!active);
-            }}
-          >
-            <MenuText color="#343538">ACCESORIES</MenuText>
-          </MenuOption>
-        </Dropdown>
-      ) : null}
     </Root>
   );
 }

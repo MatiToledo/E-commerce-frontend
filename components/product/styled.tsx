@@ -7,6 +7,11 @@ export const Root = styled.div`
   justify-content: center;
   align-items: center;
   padding: 30px;
+
+  @media (min-width: 796px) {
+    min-height: 600px;
+    flex-direction: row;
+  }
 `;
 
 export const Media: any = styled.div`
@@ -24,6 +29,12 @@ export const Container = styled.div`
   justify-content: flex-start;
   width: 350px;
   gap: 4px;
+
+  @media (min-width: 796px) {
+    margin-left: 30px;
+    height: 525px;
+    margin-top: 0px;
+  }
 `;
 
 export const Price = styled.div`

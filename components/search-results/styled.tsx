@@ -31,8 +31,16 @@ export const Total = styled.div`
   margin-bottom: 5px;
   justify-content: flex-start;
   text-align: left;
-  width: 100%;
-  padding-left: 25px;
+  width: 380px;
+  padding-left: 20px;
+  @media (min-width: 580px) {
+    padding-left: 30px;
+    width: 580px;
+  }
+  @media (min-width: 780px) {
+    padding-left: 40px;
+    width: 780px;
+  }
 `;
 
 export const NavContainer = styled.div`
