@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import img from "images/back.png";
 
 export const Root = styled.div`
   display: flex;

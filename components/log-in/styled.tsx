@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { TinyText } from "ui/texts";
 
 export const Root = styled.div`
   height: 565px;

@@ -1,6 +1,5 @@
 import { fetchApiGet } from "lib/api";
-import { Router, useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import useSWR from "swr";
 
 export function useGetPagination() {

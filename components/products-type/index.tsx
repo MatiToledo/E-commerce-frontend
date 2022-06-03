@@ -1,6 +1,6 @@
 import Card from "ui/card";
 import { CardsContainer, HeaderText, HeaderType, Root } from "./styled";
-import { Body, TinyText, Title } from "ui/texts";
+import { TinyText, Title } from "ui/texts";
 
 type ProductsTypeProps = {
   data: {

@@ -1,8 +1,6 @@
 import { useGetPagination } from "hooks";
-import { fetchApiGet, getPagination } from "lib/api";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import { ButtonPage } from "ui/buttons";
 import Card from "ui/card";
 import { Next, Prev } from "ui/icons";
 import { SubTitle, TinyText } from "ui/texts";

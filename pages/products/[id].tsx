@@ -1,7 +1,6 @@
 import MainLayaout from "components/main-layout";
 import Product from "components/product";
 import type { NextPage } from "next";
-import { Head } from "next/document";
 
 const ProductPage: NextPage = ({ data }: any) => {
   return (
