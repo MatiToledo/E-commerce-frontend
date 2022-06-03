@@ -27,21 +27,30 @@ export default function Header() {
       </Menu>
       {active ? (
         <Dropdown>
-          <Link href={"Top"}>
-            <MenuOption>
-              <MenuText color="#343538">TOP</MenuText>
-            </MenuOption>
-          </Link>
-          <Link href={"/Bottom"}>
-            <MenuOption>
-              <MenuText color="#343538">BOTTOM</MenuText>
-            </MenuOption>
-          </Link>
-          <Link href={"/Accserios"}>
-            <MenuOption>
-              <MenuText color="#343538">ACCESORIES</MenuText>
-            </MenuOption>
-          </Link>
+          <MenuOption
+            onClick={() => {
+              router.push({ pathname: "/Top" });
+              setActive(!active);
+            }}
+          >
+            <MenuText color="#343538">TOP</MenuText>
+          </MenuOption>
+          <MenuOption
+            onClick={() => {
+              router.push({ pathname: "/Bottom" });
+              setActive(!active);
+            }}
+          >
+            <MenuText color="#343538">BOTTOM</MenuText>
+          </MenuOption>
+          <MenuOption
+            onClick={() => {
+              router.push({ pathname: "/Accesorios" });
+              setActive(!active);
+            }}
+          >
+            <MenuText color="#343538">ACCESORIES</MenuText>
+          </MenuOption>
         </Dropdown>
       ) : null}
     </Root>
