@@ -4,7 +4,7 @@ const withSvgr = require("next-svgr");
 const nextConfig = withSvgr({
   reactStrictMode: true,
   compiler: {
-    styledComponent: true,
+    styledComponents: true,
   },
 });
 
