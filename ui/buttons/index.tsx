@@ -36,3 +36,20 @@ export function ButtonShop() {
     </ShopButton>
   );
 }
+
+export const PageButton = styled.button`
+  background-color: #fafafa;
+  border: solid 0.5px #8a8a8a;
+  border-radius: 3px;
+  width: 30px;
+  height: 30px;
+  margin: 0 2.5px;
+`;
+
+export function ButtonPage({ text }: any) {
+  return (
+    <PageButton>
+      <MenuText>{text}</MenuText>
+    </PageButton>
+  );
+}

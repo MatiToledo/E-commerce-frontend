@@ -4,6 +4,8 @@ import UserIcon from "./user.svg";
 import InstagramIcon from "./instagram.svg";
 import FacebookIcon from "./facebook.svg";
 import TwitterIcon from "./twitter.svg";
+import PrevIcon from "./prev.svg";
+import NextIcon from "./next.svg";
 
 export const Burguer = styled(MenuIcon)`
   width: 24px;
@@ -29,6 +31,16 @@ export const Twitter = styled(TwitterIcon)`
 `;
 
 export const Instagram = styled(InstagramIcon)`
+  stroke: #8a8a8a;
+  width: 20px;
+  height: 20px;
+`;
+export const Prev = styled(PrevIcon)`
+  stroke: #8a8a8a;
+  width: 20px;
+  height: 20px;
+`;
+export const Next = styled(NextIcon)`
   stroke: #8a8a8a;
   width: 20px;
   height: 20px;

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { Burguer, User } from "ui/icons";
@@ -26,30 +27,21 @@ export default function Header() {
       </Menu>
       {active ? (
         <Dropdown>
-          <MenuOption
-            onClick={() => {
-              router.push({ pathname: "/Top" });
-              setActive(!active);
-            }}
-          >
-            <MenuText color="#343538">TOP</MenuText>
-          </MenuOption>
-          <MenuOption
-            onClick={() => {
-              router.push({ pathname: "/Bottom" });
-              setActive(!active);
-            }}
-          >
-            <MenuText color="#343538">BOTTOM</MenuText>
-          </MenuOption>
-          <MenuOption
-            onClick={() => {
-              router.push({ pathname: "/Accesorios" });
-              setActive(!active);
-            }}
-          >
-            <MenuText color="#343538">ACCESORIES</MenuText>
-          </MenuOption>
+          <Link href={"Top"}>
+            <MenuOption>
+              <MenuText color="#343538">TOP</MenuText>
+            </MenuOption>
+          </Link>
+          <Link href={"/Bottom"}>
+            <MenuOption>
+              <MenuText color="#343538">BOTTOM</MenuText>
+            </MenuOption>
+          </Link>
+          <Link href={"/Accserios"}>
+            <MenuOption>
+              <MenuText color="#343538">ACCESORIES</MenuText>
+            </MenuOption>
+          </Link>
         </Dropdown>
       ) : null}
     </Root>

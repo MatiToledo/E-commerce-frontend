@@ -39,3 +39,7 @@ export const TinyText = styled.span`
 export const TinyTextBold = styled(TinyText)`
   font-weight: bold;
 `;
+
+export const Error = styled(TinyText)`
+  margin-bottom: 10px;
+`;

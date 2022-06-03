@@ -21,7 +21,7 @@ export const Container = styled.div`
   align-items: center;
 `;
 
-export const InputContainer = styled.div`
+export const Form = styled.form`
   display: flex;
   justify-content: space-between;
   flex-direction: column;

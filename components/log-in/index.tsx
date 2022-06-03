@@ -1,7 +1,7 @@
 import { ButtonPrimary } from "ui/buttons";
 import { Input, InputLogin } from "ui/inputs";
-import { SubTitle, TinyText } from "ui/texts";
-import { Error, Root, Form } from "./styled";
+import { Error, SubTitle, TinyText } from "ui/texts";
+import { Root, Form } from "./styled";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { sendCode } from "lib/api";

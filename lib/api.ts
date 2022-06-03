@@ -1,15 +1,14 @@
 export async function fetchAPI(path: RequestInfo, config: any) {
   let BASE_URL = "https://desafio-m9.vercel.app/api/";
   const url = BASE_URL + path;
-
-  console.log("Config", config);
+  // config.body = "{ email: 'toledo.nicolas.matias@gmail.com' }";
 
   try {
     let call = await fetch(url, config);
-    console.log("CALL", call);
     let res = await call.json();
-    console.log("RES", res);
-    if (res.status >= 200 && res.status < 300) {
+
+    // console.log("RES", res);
+    if (call.status >= 200 && call.status < 300) {
       return res;
     } else {
       throw {
@@ -31,8 +30,9 @@ export function getSavedToken() {
 
 export async function fetchApiPost(path: string, data: any) {
   const token = getSavedToken();
+
   const config = {
-    method: "post",
+    method: "POST",
     headers: {
       "Content-Type": "application/json",
       Authorization: token ? `bearer ${token}` : "",
@@ -57,4 +57,11 @@ export async function fetchApiGet(path: string) {
 export async function sendCode(email: string) {
   fetchApiPost("auth", { email });
   // fetchApiGet("products/type/Top");
+}
+
+export async function getPagination() {
+  const pagination = await fetchApiGet("search?q=hoodie&limit=10&offset=0");
+  console.log("API", pagination);
+
+  return pagination;
 }

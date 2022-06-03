@@ -17,7 +17,3 @@ export const Form = styled.form`
   justify-content: space-between;
   width: 250px;
 `;
-
-export const Error = styled(TinyText)`
-  margin-bottom: 10px;
-`;
