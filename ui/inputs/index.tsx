@@ -63,7 +63,7 @@ export const Input = styled.input.attrs((props) => ({
   }
 `;
 
-export const InputLogin = styled(Input)`
+export const InputForm = styled(Input)`
   font-size: 12px;
 `;
 

@@ -1,13 +1,14 @@
 export async function fetchAPI(path: RequestInfo, config: any) {
   let BASE_URL = "https://desafio-m9.vercel.app/api/";
   const url = BASE_URL + path;
-  // config.body = "{ email: 'toledo.nicolas.matias@gmail.com' }";
 
+  // config.body = {};
+
+  let call = await fetch(url, config);
+  let res = await call.json();
+
+  console.log("RES", res);
   try {
-    let call = await fetch(url, config);
-    let res = await call.json();
-
-    // console.log("RES", res);
     if (call.status >= 200 && call.status < 300) {
       return res;
     } else {
@@ -25,14 +26,31 @@ export function saveToken(token: string) {
   localStorage.setItem("auth_token", token);
 }
 export function getSavedToken() {
-  return localStorage.getItem("auth_token");
+  if (typeof window !== "undefined") {
+    // Perform localStorage action
+    const token = localStorage.getItem("auth_token");
+    return token;
+  }
 }
 
-export async function fetchApiPost(path: string, data: any) {
+export async function fetchApiPost(path: string, data?: any) {
   const token = getSavedToken();
 
   const config = {
     method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: token ? `bearer ${token}` : "",
+    },
+    body: JSON.stringify({ ...data }),
+  };
+  return await fetchAPI(path, config);
+}
+export async function fetchApiPatch(path: string, data?: any) {
+  const token = getSavedToken();
+
+  const config = {
+    method: "PATCH",
     headers: {
       "Content-Type": "application/json",
       Authorization: token ? `bearer ${token}` : "",
@@ -55,8 +73,26 @@ export async function fetchApiGet(path: string) {
 }
 
 export async function sendCode(email: string) {
-  fetchApiPost("auth", { email });
-  // fetchApiGet("products/type/Top");
+  try {
+    await fetchApiPost("auth", { email });
+    return true;
+  } catch (error) {
+    console.error(error);
+    return false;
+  }
+}
+
+export async function authenticate(email: string, code: string) {
+  try {
+    const auth = await fetchApiPost("auth/token", {
+      email,
+      code: parseInt(code),
+    });
+    return auth;
+  } catch (error) {
+    console.error(error);
+    return false;
+  }
 }
 
 export async function getPagination() {
@@ -64,4 +100,14 @@ export async function getPagination() {
   console.log("API", pagination);
 
   return pagination;
+}
+
+export async function modifyProfile(data: any) {
+  try {
+    const auth = await fetchApiPatch("me", data);
+    return auth;
+  } catch (error) {
+    console.error(error);
+    return false;
+  }
 }

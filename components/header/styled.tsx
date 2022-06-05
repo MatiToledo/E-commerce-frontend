@@ -33,9 +33,3 @@ export const Menu = styled.div`
     width: 30px;
   }
 `;
-
-export const Burguer = styled.div`
-  @media (min-width: 796px) {
-    display: none;
-  }
-`;

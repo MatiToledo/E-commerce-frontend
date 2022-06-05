@@ -1,23 +1,21 @@
-import BurguerHeader from "components/burguer-header";
+import Menu from "components/menu";
+import { useLogged } from "hooks";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import { User } from "ui/icons";
 import { LogoWhite } from "ui/logo";
-import { Body, MenuText } from "ui/texts";
-import { Burguer, Left, Menu, NavLeft, Root } from "./styled";
+import { Body } from "ui/texts";
+import { Left, NavLeft, Root } from "./styled";
 
 export default function Header() {
   const [active, setActive] = useState(false);
+  const { logged } = useLogged();
   const router = useRouter();
-  function handleUser() {
-    router.push("log-in");
-  }
 
   return (
     <Root>
       <Left>
-        <LogoWhite onClick={() => router.push("/")} />
+        <LogoWhite onClick={() => router.push({ pathname: "/" })} />
         <NavLeft>
           <Link href={"/Top"}>
             <Body color="#fafafa">Top</Body>
@@ -30,12 +28,7 @@ export default function Header() {
           </Link>
         </NavLeft>
       </Left>
-      <Menu>
-        <User onClick={handleUser} />
-        <Burguer>
-          <BurguerHeader />
-        </Burguer>
-      </Menu>
+      <Menu />
     </Root>
   );
 }

@@ -2,7 +2,12 @@ import styled, { keyframes } from "styled-components";
 
 export const Root = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+  width: 55px;
+  @media (min-width: 796px) {
+    width: 20px;
+  }
 `;
 
 const animation = keyframes`
@@ -27,4 +32,13 @@ export const MenuOption = styled.a`
   background-color: #ffffff;
   padding: 12px 30px;
   border-bottom: 1px solid #e0e0e0;
+`;
+
+export const BurguerContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @media (min-width: 796px) {
+    display: none;
+  }
 `;
