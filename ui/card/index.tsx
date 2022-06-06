@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useRouter } from "next/router";
 import styled from "styled-components";
 import { BodyBold, SubTitle, TinyText } from "ui/texts";
@@ -20,15 +21,6 @@ export const Info = styled.div`
   /* min-width: 160px; */
 `;
 
-export const Media: any = styled.div`
-  background-image: url(${(props: any) => props.src};);
-  min-width: 160px;
-  height: 270px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-`;
-
 type CardProps = {
   src: string;
   title: string;
@@ -44,7 +36,7 @@ export default function Card({ src, title, price, id }: CardProps) {
 
   return (
     <Root onClick={handleClick}>
-      <Media src={src}></Media>
+      <Image width={160} height={270} src={src}></Image>
       <Info>
         <BodyBold>{title}</BodyBold>
         <TinyText>$ {price}</TinyText>

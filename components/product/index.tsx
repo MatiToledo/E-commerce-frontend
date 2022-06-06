@@ -1,10 +1,11 @@
 import BuyPopUp from "components/buy-popup";
 import { useListenOrderStatus } from "hooks";
 import { startBuyItem } from "lib/api";
+import Image from "next/image";
 import { ButtonShop } from "ui/buttons";
 import { InputSize } from "ui/inputs";
 import { BodyBold, SubTitle, TinyText, TinyTextBold } from "ui/texts";
-import { Button, Category, Container, Media, Price, Root } from "./styled";
+import { Button, Category, Container, Price, Root } from "./styled";
 
 export default function Product({ product }: any) {
   const { setOrderId, status } = useListenOrderStatus();
@@ -20,7 +21,7 @@ export default function Product({ product }: any) {
 
   return (
     <Root>
-      <Media src={product.Images[0].url}></Media>
+      <Image width={350} height={525} src={product.Images[0].url}></Image>
       <Container>
         <SubTitle>{product.Name}</SubTitle>
         <TinyText>{product.Code}</TinyText>

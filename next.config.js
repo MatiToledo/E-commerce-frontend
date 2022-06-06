@@ -8,6 +8,7 @@ const nextConfig = withSvgr({
   },
   images: {
     formats: ["image/webp"],
+    domains: ["dl.airtable.com"],
   },
 });
 
