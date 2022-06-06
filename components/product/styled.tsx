@@ -14,6 +14,14 @@ export const Root = styled.div`
   }
 `;
 
+export const Media: any = styled.div`
+  background-image: url(${(props: any) => props.src};);
+  min-width: 350px;
+  min-height: 525px;
+  background-size: contain;
+  background-repeat: no-repeat;
+`;
+
 export const Container = styled.div`
   display: flex;
   flex-direction: column;

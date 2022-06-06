@@ -6,10 +6,6 @@ const nextConfig = withSvgr({
   compiler: {
     styledComponents: true,
   },
-  images: {
-    formats: ["image/webp"],
-    domains: ["dl.airtable.com"],
-  },
 });
 
 module.exports = nextConfig;
