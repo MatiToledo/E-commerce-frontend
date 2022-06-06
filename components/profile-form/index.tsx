@@ -8,6 +8,7 @@ import { Container, LogOut, Root } from "./styled";
 
 export default function ProfileForm() {
   const [success, setSuccess] = useState(false);
+  const [failure, setFailure] = useState(false);
 
   const {
     register,
@@ -23,6 +24,8 @@ export default function ProfileForm() {
     if (modify) {
       reset();
       setSuccess(true);
+    } else {
+      setFailure(true);
     }
   }
 
@@ -59,9 +62,9 @@ export default function ProfileForm() {
         </Container>
       </form>
       {success ? <Body>Información guardada con éxito</Body> : null}
-      {/* <LogOut>
-        <ButtonPrimary text={"Cerrar sesion"}></ButtonPrimary>
-      </LogOut> */}
+      {failure ? (
+        <Body color="red">Error al guardar la información, reintentelo</Body>
+      ) : null}
     </Root>
   );
 }
