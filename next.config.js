@@ -6,6 +6,9 @@ const nextConfig = withSvgr({
   compiler: {
     styledComponents: true,
   },
+  images: {
+    formats: ["image/webp"],
+  },
 });
 
 module.exports = nextConfig;
