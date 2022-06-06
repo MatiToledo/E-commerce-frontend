@@ -29,7 +29,6 @@ export async function getStaticProps(context: any) {
 
   const res = await fetch(`https://desafio-m9.vercel.app/api/products/${id}`);
   const data = await res.json();
-  console.log(data);
 
   return {
     props: { data },

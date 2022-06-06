@@ -2,12 +2,9 @@ export async function fetchAPI(path: RequestInfo, config: any) {
   let BASE_URL = "https://desafio-m9.vercel.app/api/";
   const url = BASE_URL + path;
 
-  // config.body = {};
-
   let call = await fetch(url, config);
   let res = await call.json();
 
-  console.log("RES", res);
   try {
     if (call.status >= 200 && call.status < 300) {
       return res;
@@ -18,7 +15,7 @@ export async function fetchAPI(path: RequestInfo, config: any) {
       };
     }
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 }
 
@@ -97,7 +94,6 @@ export async function authenticate(email: string, code: string) {
 
 export async function getPagination() {
   const pagination = await fetchApiGet("search?q=hoodie&limit=10&offset=0");
-  console.log("API", pagination);
 
   return pagination;
 }
@@ -106,6 +102,16 @@ export async function modifyProfile(data: any) {
   try {
     const auth = await fetchApiPatch("me", data);
     return auth;
+  } catch (error) {
+    console.error(error);
+    return false;
+  }
+}
+
+export async function startBuyItem(producId: string, additionalInfo?: any) {
+  try {
+    const order = fetchApiPost(`order?productId=${producId}`, additionalInfo);
+    return order;
   } catch (error) {
     console.error(error);
     return false;

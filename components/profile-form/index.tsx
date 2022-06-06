@@ -18,7 +18,6 @@ export default function ProfileForm() {
   } = useForm();
 
   async function handleForm(data: any) {
-    console.log(data);
     const { name, address, phone } = data;
     const modify = await modifyProfile({ name, address, phone });
     if (modify) {

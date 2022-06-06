@@ -48,3 +48,20 @@ export function useLogged() {
 
   return { logged, setLogged };
 }
+
+export function useListenOrderStatus() {
+  const [orderId, setOrderId] = useState();
+  const [status, setStatus] = useState();
+
+  const { data, error } = useSWR(
+    orderId ? `order/${orderId}` : null,
+    fetchApiGet,
+    { refreshInterval: 2000, revalidateOnFocus: true }
+  );
+
+  useEffect(() => {
+    setStatus(data?.status);
+  }, [data]);
+
+  return { setOrderId, status };
+}

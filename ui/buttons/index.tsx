@@ -29,9 +29,9 @@ export const ShopButton = styled.button`
   width: 200px;
 `;
 
-export function ButtonShop() {
+export function ButtonShop({ onClick }: any) {
   return (
-    <ShopButton>
+    <ShopButton onClick={onClick}>
       <MenuText color="#fff">COMPRAR</MenuText>
     </ShopButton>
   );

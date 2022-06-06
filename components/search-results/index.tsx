@@ -12,7 +12,6 @@ export default function SearchProducts() {
 
   const { data, pages, offset, setQ, setOffset } = useGetPagination();
   const products = data?.results || false;
-  // console.log(data);
 
   useEffect(() => {
     setOffset(0);

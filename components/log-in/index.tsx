@@ -9,6 +9,7 @@ import { useRouter } from "next/router";
 
 export default function LogIn() {
   const [email, setEmail] = useState("");
+  const [failure, setFailure] = useState(false);
   const router = useRouter();
 
   const {
@@ -23,11 +24,14 @@ export default function LogIn() {
   async function handleEmail(data: any) {
     if (data.email !== "") {
       const codeSended = await sendCode(data.email);
+      codeSended;
+
       if (codeSended) {
+        setFailure(false);
         setEmail(data.email);
         reset();
       } else {
-        window.alert("Error");
+        setFailure(true);
       }
     }
   }
@@ -38,7 +42,7 @@ export default function LogIn() {
       saveToken(auth.token);
       router.push({ pathname: "/" });
     } else {
-      window.alert("Error");
+      setFailure(true);
     }
   }
 
@@ -57,6 +61,11 @@ export default function LogIn() {
               ></InputForm>
               {errors.email && <Error>Este campo es obligatorio</Error>}
             </label>
+            {failure ? (
+              <TinyText color="red">
+                Ocurrio un error, intente nuevamente
+              </TinyText>
+            ) : null}
             <ButtonPrimary text="Continuar"></ButtonPrimary>
           </Container>
         </form>
@@ -72,6 +81,9 @@ export default function LogIn() {
               ></InputForm>
               {errors.codigo && <Error>Este campo es obligatorio</Error>}
             </label>
+            {failure ? (
+              <TinyText color="red">Codigo Incorrecto</TinyText>
+            ) : null}
             <TinyText>Te enviamos un codigo a tu email</TinyText>
             <ButtonPrimary text="Ingresar"></ButtonPrimary>
           </Container>
