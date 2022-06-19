@@ -1,17 +1,24 @@
 import BuyPopUp from "components/buy-popup";
 import { useListenOrderStatus } from "hooks";
-import { startBuyItem } from "lib/api";
+import { getSavedToken, startBuyItem } from "lib/api";
 import { useRouter } from "next/router";
+import { useState } from "react";
 import { ButtonShop } from "ui/buttons";
 import { InputSize } from "ui/inputs";
 import { BodyBold, SubTitle, TinyText, TinyTextBold } from "ui/texts";
-import { Button, Category, Container, Media, Price, Root } from "./styled";
+import { Button, Category, Container, Description, Media, Price, Root } from "./styled";
 
 export default function Product({ product }: any) {
   const { setOrderId, status } = useListenOrderStatus();
-  const router = useRouter();
-
+  const [message, setMessage] = useState("")
+  let token = getSavedToken()
+  
   async function handleBuy() {
+    if(!token){
+      let unloggedMessage = "Debes iniciar sesión para poder comprar"
+      return setMessage(unloggedMessage)
+    }
+
     const order = await startBuyItem(product.Code, { quantity: 1 });
     if (!order) {
       window.alert("Hubo un error, intentelo nuevamente");
@@ -35,7 +42,10 @@ export default function Product({ product }: any) {
         <Button>
           <ButtonShop onClick={handleBuy}></ButtonShop>
         </Button>
+        {message? <TinyText color="red">{message}</TinyText> : null}
+        <Description>
         <TinyText>{product.Description}</TinyText>
+        </Description>
         <Category>
           <TinyText>
             Categoria: <TinyTextBold>{product.Category}</TinyTextBold>

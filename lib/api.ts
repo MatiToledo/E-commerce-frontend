@@ -71,7 +71,9 @@ export async function fetchApiGet(path: string) {
 
 export async function sendCode(email: string) {
   try {
-    await fetchApiPost("auth", { email });
+    const sendCode = await fetchApiPost("auth", { email });
+    console.log("SENDCODE", sendCode);
+
     return true;
   } catch (error) {
     console.error(error);

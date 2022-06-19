@@ -42,7 +42,11 @@ export const Price = styled.div`
 `;
 
 export const Button = styled.div`
-  margin: 20px 0;
+  margin-top: 20px;
+`;
+
+export const Description = styled.div`
+  margin-top: 20px;
 `;
 
 export const Category = styled.div`

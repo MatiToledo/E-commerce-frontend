@@ -65,3 +65,18 @@ export function useListenOrderStatus() {
 
   return { setOrderId, status };
 }
+
+export function useFeaturedProducts(){
+  const [featured, setFeatured] = useState([])
+  const { data, error } = useSWRImmutable("products", fetchApiGet);
+  
+  let products = data?.hits.sort((a: any, b: any) => {
+    return b["units_sold"] - a["units_sold"];
+  }).slice(0, 2);
+  
+  useEffect(() => {
+    setFeatured(products)
+  }, [data])
+  
+  return featured
+}

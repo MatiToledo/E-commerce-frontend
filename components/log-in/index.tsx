@@ -24,7 +24,7 @@ export default function LogIn() {
   async function handleEmail(data: any) {
     if (data.email !== "") {
       const codeSended = await sendCode(data.email);
-      codeSended;
+      console.log("CODIGO", codeSended);
 
       if (codeSended) {
         setFailure(false);

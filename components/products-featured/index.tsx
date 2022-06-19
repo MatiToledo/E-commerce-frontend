@@ -2,14 +2,11 @@ import Card from "ui/card";
 import { Root } from "./styled";
 import { Title } from "ui/texts";
 import { CardsContainer } from "./styled";
-import { useGetProducts } from "hooks";
+import { useFeaturedProducts, useGetProducts } from "hooks";
 
 export default function ProductsFeatured() {
-  const AllProducts = useGetProducts();
-  let products = AllProducts?.sort((a: any, b: any) => {
-    return b["units_sold"] - a["units_sold"];
-  }).slice(0, 2);
-
+  let products = useFeaturedProducts()
+  
   return (
     <Root>
       <Title>Productos Destacados</Title>
