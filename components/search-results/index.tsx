@@ -28,22 +28,19 @@ export default function SearchProducts() {
       setOffset(offset + 4);
     }
   }
-  function handleButtonPage(page: number) {
-    console.log(page);
-  }
 
   return (
     <div>
       {data ? (
         <Root>
           <SubTitle>Resultados de busqueda</SubTitle>
-          <Total>
-            <TinyText>
-              {products.length} resultados de {data.pagination.total}{" "}
-            </TinyText>
-          </Total>
           <CardsContainer>
-            {products.map((p: any) => {
+            <Total>
+              <TinyText>
+                {products.length} resultados de {data.pagination.total}{" "}
+              </TinyText>
+            </Total>
+            {products?.map((p: any) => {
               return (
                 <Card
                   key={p.Code}
@@ -57,16 +54,6 @@ export default function SearchProducts() {
           </CardsContainer>
           <NavContainer>
             <Prev onClick={handlePrev}></Prev>
-            {/* <ButtonsContainer>
-              {pages.map((page: any) => {
-                return (
-                  <ButtonPage
-                    onClick={handleButtonPage(page)}
-                    text={page}
-                  ></ButtonPage>
-                );
-              })}
-            </ButtonsContainer> */}
             <Next onClick={handleNext}></Next>
           </NavContainer>
         </Root>

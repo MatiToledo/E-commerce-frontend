@@ -15,7 +15,7 @@ export const Left = styled.div`
 
 export const NavLeft = styled.div`
   display: none;
-  @media (min-width: 796px) {
+  @media (min-width: 702px) {
     margin-left: 30px;
     display: flex;
     width: 200px;

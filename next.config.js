@@ -6,6 +6,14 @@ const nextConfig = withSvgr({
   compiler: {
     styledComponents: true,
   },
+  images: {
+    domains: [
+      "cdn.contentful.com",
+      "assets.vercel.com",
+      "images.ctfassets.net",
+    ],
+    formats: ["image/avif", "image/webp"],
+  },
 });
 
 module.exports = nextConfig;
