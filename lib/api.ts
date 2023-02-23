@@ -22,6 +22,7 @@ export async function fetchAPI(path: RequestInfo, config: any) {
 export function saveToken(token: string) {
   localStorage.setItem("auth_token", token);
 }
+
 export function getSavedToken() {
   if (typeof window !== "undefined") {
     // Perform localStorage action

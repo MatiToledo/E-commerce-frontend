@@ -34,12 +34,12 @@ export default function SearchProducts() {
       {data ? (
         <Root>
           <SubTitle>Resultados de busqueda</SubTitle>
+          <Total>
+            <TinyText>
+              {products.length} resultados de {data.pagination.total}{" "}
+            </TinyText>
+          </Total>
           <CardsContainer>
-            <Total>
-              <TinyText>
-                {products.length} resultados de {data.pagination.total}{" "}
-              </TinyText>
-            </Total>
             {products?.map((p: any) => {
               return (
                 <Card

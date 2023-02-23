@@ -5,8 +5,8 @@ import { CardsContainer } from "./styled";
 import { useFeaturedProducts, useGetProducts } from "hooks";
 
 export default function ProductsFeatured() {
-  let products = useFeaturedProducts()
-  
+  let products = useFeaturedProducts();
+
   return (
     <Root>
       <Title>Productos Destacados</Title>

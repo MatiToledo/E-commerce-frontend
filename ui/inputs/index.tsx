@@ -51,14 +51,14 @@ export const Input = styled.input.attrs((props) => ({
 
   &::placeholder {
     color: ${(props) => props.color || "black"};
-  }
+  };
 
   &:focus {
     outline: none;
     border: none;
     background: transparent;
     border-bottom: 1px solid black;
-  }
+  };
 `;
 
 export const InputForm = styled(Input)`
