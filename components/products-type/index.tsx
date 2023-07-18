@@ -13,6 +13,7 @@ type ProductsTypeProps = {
 
 export default function ProductsType({ data, type }: ProductsTypeProps) {
   const products = data.products;
+  console.log("products::: ", products);
 
   return (
     <Root>
@@ -21,7 +22,13 @@ export default function ProductsType({ data, type }: ProductsTypeProps) {
           <Title text-decoration={"underline #fafafa"} color="#fafafa">
             {type.toUpperCase()}
           </Title>
-          {type == "Top" ? <Top/> : type == "Bottom" ? <Bottom/> : <Accesories/>}
+          {type == "Top" ? (
+            <Top />
+          ) : type == "Bottom" ? (
+            <Bottom />
+          ) : (
+            <Accesories />
+          )}
         </HeaderText>
       </HeaderType>
       <CardsContainer>
@@ -31,9 +38,8 @@ export default function ProductsType({ data, type }: ProductsTypeProps) {
               key={p.Code}
               price={p.unit_price}
               title={p.Name}
-              src={p.Images[0].url}
-              id={p.Code}
-            ></Card>
+              src={p.image_url}
+              id={p.Code}></Card>
           );
         })}
       </CardsContainer>

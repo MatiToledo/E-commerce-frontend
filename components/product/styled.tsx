@@ -15,11 +15,13 @@ export const Root = styled.div`
 `;
 
 export const Media: any = styled.div`
-  background-image: url(${(props: any) => props.src};);
-  min-width: 350px;
-  min-height: 525px;
-  background-size: contain;
-  background-repeat: no-repeat;
+  width: 350px;
+  aspect-ratio: 1;
+  position: relative;
+  max-height: 525px;
+  @media (min-width: 796px) {
+    height: 525px;
+  }
 `;
 
 export const Container = styled.div`

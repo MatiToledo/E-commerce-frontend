@@ -11,6 +11,7 @@ const nextConfig = withSvgr({
       "cdn.contentful.com",
       "assets.vercel.com",
       "images.ctfassets.net",
+      "res.cloudinary.com",
     ],
     formats: ["image/avif", "image/webp"],
   },

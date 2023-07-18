@@ -46,9 +46,8 @@ export default function SearchProducts() {
                   key={p.Code}
                   price={p.unit_price}
                   title={p.Name}
-                  src={p.Images[0].url}
-                  id={p.Code}
-                ></Card>
+                  src={p.image_url}
+                  id={p.Code}></Card>
               );
             })}
           </CardsContainer>

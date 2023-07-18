@@ -6,17 +6,26 @@ import { useState } from "react";
 import { ButtonShop } from "ui/buttons";
 import { InputSize } from "ui/inputs";
 import { BodyBold, SubTitle, TinyText, TinyTextBold } from "ui/texts";
-import { Button, Category, Container, Description, Media, Price, Root } from "./styled";
+import {
+  Button,
+  Category,
+  Container,
+  Description,
+  Media,
+  Price,
+  Root,
+} from "./styled";
+import Image from "next/image";
 
 export default function Product({ product }: any) {
   const { setOrderId, status } = useListenOrderStatus();
-  const [message, setMessage] = useState("")
-  let token = getSavedToken()
-  
+  const [message, setMessage] = useState("");
+  let token = getSavedToken();
+
   async function handleBuy() {
-    if(!token){
-      let unloggedMessage = "Debes iniciar sesión para poder comprar"
-      return setMessage(unloggedMessage)
+    if (!token) {
+      let unloggedMessage = "Debes iniciar sesión para poder comprar";
+      return setMessage(unloggedMessage);
     }
 
     const order = await startBuyItem(product.Code, { quantity: 1 });
@@ -29,7 +38,13 @@ export default function Product({ product }: any) {
 
   return (
     <Root>
-      <Media src={product.Images[0].url}></Media>
+      <Media>
+        <Image
+          priority={true}
+          layout="fill"
+          objectFit="cover"
+          src={product.image_url}></Image>
+      </Media>
       <Container>
         <SubTitle>{product.Name}</SubTitle>
         <TinyText>{product.Code}</TinyText>
@@ -42,9 +57,9 @@ export default function Product({ product }: any) {
         <Button>
           <ButtonShop onClick={handleBuy}></ButtonShop>
         </Button>
-        {message? <TinyText color="red">{message}</TinyText> : null}
+        {message ? <TinyText color="red">{message}</TinyText> : null}
         <Description>
-        <TinyText>{product.Description}</TinyText>
+          <TinyText>{product.Description}</TinyText>
         </Description>
         <Category>
           <TinyText>
